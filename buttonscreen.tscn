@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://boxls56jo5rl6"]
+
+[ext_resource type="Script" path="res://buttonscreen.gd" id="1_edis7"]
+[ext_resource type="PackedScene" uid="uid://ddtqf4bvqndep" path="res://tank.tscn" id="1_ob116"]
+[ext_resource type="Texture2D" uid="uid://db8kmbqrqg54p" path="res://Images/Tank.png" id="2_8irpk"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_edis7")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 477.0
+offset_top = 42.0
+offset_right = 639.0
+offset_bottom = 99.0
+text = "Toggle Motion"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 60.0
+autostart = true
+
+[node name="Tank" parent="." instance=ExtResource("1_ob116")]
+position = Vector2(558, 324)
+texture = ExtResource("2_8irpk")
+
+[connection signal="pressed" from="Button" to="Tank" method="_on_button_pressed"]
